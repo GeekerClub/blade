@@ -1,0 +1,39 @@
+#!/bin/bash
+
+des_dir=/usr/local/bin
+
+blade_dir=$(cd $(dirname $0) && pwd)
+cd $blade_dir
+
+echo -n "Installing vim scripts..."
+mkdir -p ~/.vim/{syntax,ftdetect,indent}
+ln -sf $blade_dir/vim/ftdetect/blade.vim ~/.vim/ftdetect/
+ln -sf $blade_dir/vim/syntax/blade.vim ~/.vim/syntax/
+ln -sf $blade_dir/vim/indent/blade.vim ~/.vim/indent/
+
+if [ ! -f ~/.vimrc ]; then
+    touch ~/.vimrc
+fi
+
+if ! grep "set filetype=blade" ~/.vimrc 2>&1 >/dev/null; then
+    cat >> ~/.vimrc << END
+augroup filetype
+    autocmd! BufRead,BufNewFile BUILD set filetype=blade
+augroup end
+END
+fi
+echo ", Done."
+
+mkdir -p $des_dir
+echo -n "Installing blade auxiliary tools..."
+ln -sf $blade_dir/{genlibbuild,lsnobuild,lsrc,bladefunctions} $des_dir
+if [ ! -f ~/.bash_profile ] || ! grep "bladefunctions" ~/.bash_profile 2>&1 >/dev/null; then
+    echo "test -s ~/bin/bladefunctions && . ~/bin/bladefunctions || true" >> ~/.bash_profile
+fi
+echo ", Done."
+
+echo -n "Installing blade..."
+ln -sf $blade_dir/blade $des_dir
+echo ", Done."
+
+echo "All successful."
