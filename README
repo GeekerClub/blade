@@ -68,7 +68,7 @@ highly encourage it.
     Blade is released in versioned source packages which is
     located at this site [1].
 
-    [1] http://code.tencent.com/projects/blade
+    [1] https://github.com/chen3feng/typhoon-blade
 
 Setting up the collection
 -----------------------------
@@ -80,7 +80,7 @@ several symbolic links that enable you to execute blade command.
 
 Reference
 -----------------------------
-    [1] http://code.tencent.com/projects/blade
+    [1] https://github.com/chen3feng/typhoon-blade
     [2] user manual is inside the package
     [3] developer manual is inside the package
 
