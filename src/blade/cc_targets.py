@@ -1446,11 +1446,11 @@ class ProtoLibrary(CcTarget):
         self.options = self.blade.get_options()
         self.direct_targets = self.blade.get_direct_targets()
 
-        if (hasattr(self.options, 'generate_java')
-                and self.options.generate_java) or (
-                       self.data.get('options', {}).get('generate_java', False) or (
-                              self.key in self.direct_targets)):
-            self._proto_java_rules()
+#         if (hasattr(self.options, 'generate_java')
+#                 and self.options.generate_java) or (
+#                        self.data.get('options', {}).get('generate_java', False) or (
+#                               self.key in self.direct_targets)):
+#             self._proto_java_rules()
 
         if (hasattr(self.options, 'generate_php')
                 and self.options.generate_php) and (

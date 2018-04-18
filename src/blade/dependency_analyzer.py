@@ -82,12 +82,12 @@ class DependenciesAnalyzer(object):
                 for dep in self.targets[target_id]['deps']:
                     if self.targets[dep]['type'] == 'proto_library':
                         self.targets[dep]['options']['generate_python'] = True
-            elif self.targets[target_id]['type'] == 'java_jar':
-                for dep in self.targets[target_id]['deps']:
-                    if self.targets[dep]['type'] == 'proto_library':
-                        self.targets[dep]['options']['generate_java'] = True
-                    elif self.targets[dep]['type'] == 'swig_library':
-                        self.targets[dep]['options']['generate_java'] = True
+#             elif self.targets[target_id]['type'] == 'java_jar':
+#                 for dep in self.targets[target_id]['deps']:
+#                     if self.targets[dep]['type'] == 'proto_library':
+#                         self.targets[dep]['options']['generate_java'] = True
+#                     elif self.targets[dep]['type'] == 'swig_library':
+#                         self.targets[dep]['options']['generate_java'] = True
 
         self.blade.set_all_targets_expanded(self.targets)
 

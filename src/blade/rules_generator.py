@@ -317,12 +317,12 @@ top_env.Append(
                     protoc_bin, protobuf_include_path_str, self.build_dir))
         builder_list.append("BUILDERS = {'Proto' : proto_bld}")
 
-        self._add_rule(
-            "proto_java_bld = Builder(action = MakeAction('%s --proto_path=. "
-            "--proto_path=%s --java_out=%s/`dirname $SOURCE` "
-            "$SOURCE', compile_proto_java_message))" % (
-                    protoc_bin, protobuf_path, self.build_dir))
-        builder_list.append("BUILDERS = {'ProtoJava' : proto_java_bld}")
+#         self._add_rule(
+#             "proto_java_bld = Builder(action = MakeAction('%s --proto_path=. "
+#             "--proto_path=%s --java_out=%s/`dirname $SOURCE` "
+#             "$SOURCE', compile_proto_java_message))" % (
+#                     protoc_bin, protobuf_path, self.build_dir))
+#         builder_list.append("BUILDERS = {'ProtoJava' : proto_java_bld}")
 
         self._add_rule(
             "proto_php_bld = Builder(action = MakeAction('%s "
